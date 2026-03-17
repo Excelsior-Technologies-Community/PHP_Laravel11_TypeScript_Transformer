@@ -289,7 +289,7 @@ This command scans all annotated classes and generates TypeScript definitions in
 
 <img src="screenshots/Screenshot 2026-03-17 165108.png" width="900">
 
-<img src="screenshots/Screenshot 2026-03-17 174158.png" width="900">
+<img src="screenshots/Screenshot 2026-03-17 171306.png" width="900">
 
 
 ---
