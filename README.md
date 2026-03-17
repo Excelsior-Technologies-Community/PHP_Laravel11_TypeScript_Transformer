@@ -1,66 +1,343 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PHP_Laravel11_TypeScript_Transformer
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project Description
 
-## About Laravel
+PHP_Laravel11_TypeScript_Transformer is a simple Laravel 11 project that demonstrates how to automatically generate TypeScript types from your PHP models using the Spatie Laravel TypeScript Transformer package.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project is ideal for developers who want type-safe frontend development with TypeScript while keeping PHP models as the single source of truth. Any change in the PHP models can be reflected in TypeScript automatically.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Features
 
-## Learning Laravel
+1. Automatic TypeScript Generation – Converts PHP models into TypeScript interfaces automatically.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Multiple Models Support – Works with any number of models (User, Post, Comment, etc.).
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. Public Properties Mapping – Only public properties are included in generated TypeScript types.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. Nullable & Optional Properties – PHP nullable properties are mapped to optional TypeScript properties.
 
-## Laravel Sponsors
+5. Custom Transformers – Supports Enums, DTOs, and other custom PHP types.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. Configurable Output – Choose output file path for generated TypeScript types.
 
-### Premium Partners
+7. Type Safety – Ensures frontend TypeScript knows exactly the shape of backend models.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+8. Consistency Across Stack – Keeps PHP and TypeScript models synchronized automatically.
 
-## Contributing
+9. Easy to Use – Just annotate PHP classes and run php artisan typescript:transform.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+10. Scalable – Add new models or DTOs without changing config; just annotate them.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Technology
 
-## Security Vulnerabilities
+1. Laravel 11 – PHP backend framework
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+2. PHP 8+ – Modern PHP with typed properties
 
-## License
+3. Spatie TypeScript Transformer v2 – Auto-generate TypeScript types from PHP models
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4. MySQL – Database (optional)
+
+5. TypeScript – Frontend type safety
+
+
+---
+
+
+
+## Installation Steps
+
+
+---
+
+
+## STEP 1: Create Laravel 11 Project
+
+### Open terminal / CMD and run:
+
+```
+composer create-project laravel/laravel PHP_Laravel11_TypeScript_Transformer "11.*"
+
+```
+
+### Go inside project:
+
+```
+cd PHP_Laravel11_TypeScript_Transformer
+
+```
+
+#### Explanation:
+
+This installs a fresh Laravel 11 project and moves into the project folder to start development.
+
+
+
+
+## STEP 2: Database Setup (Optional)
+
+### Update database details:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel11_TypeScript_Transformer
+DB_USERNAME=root
+DB_PASSWORD=
+
+```
+
+### Create database in MySQL / phpMyAdmin:
+
+```
+Database name: laravel11_TypeScript_Transformer
+
+```
+
+### Then Run:
+
+```
+php artisan migrate
+
+```
+
+
+#### Explanation:
+
+This connects Laravel to MySQL and creates default tables like users and migrations for the project.
+
+
+
+
+
+## STEP 3: Install Spatie Laravel TypeScript Transformer
+
+### Install package:
+
+```
+composer require spatie/laravel-typescript-transformer:^2.4
+
+```
+
+### Publish config
+
+```
+php artisan vendor:publish --provider="Spatie\LaravelTypeScriptTransformer\TypeScriptTransformerServiceProvider" --tag="config"
+
+```
+
+### Now config file will be created
+
+```
+config/typescript-transformer.php
+
+```
+
+### Open: config/typescript-transformer.php
+
+```
+<?php
+
+return [
+    /*
+     * This path will save generated TS definitions.
+     */
+    'output_file' => resource_path('ts/generated.d.ts'),
+
+    /*
+     * Which collectors to use (default collector finds @typescript/#[TypeScript])
+     */
+    'collectors' => [
+        Spatie\TypeScriptTransformer\Collectors\DefaultCollector::class,
+    ],
+
+    /*
+     * Transformers define how PHP types convert
+     */
+    'transformers' => [
+        Spatie\TypeScriptTransformer\Transformers\EnumTransformer::class,
+        Spatie\TypeScriptTransformer\Transformers\DtoTransformer::class,
+    ],
+
+    /*
+     * Paths to scan for typed PHP classes
+     */
+    'auto_discover_types' => [
+        app_path(),
+    ],
+
+    /*
+     * Replacements for native types
+     */
+    'default_type_replacements' => [
+        DateTime::class => 'string',
+        DateTimeImmutable::class => 'string',
+        Carbon\Carbon::class => 'string',
+    ],
+];
+
+```
+
+#### Explanation:
+
+This installs the transformer package, publishes the config, and sets where and how PHP classes are converted into TypeScript types.
+
+
+
+
+
+## STEP 4: Create Example Models
+
+### In: app/Models/User.php
+
+#### Add:
+
+```
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @typescript
+ */
+class User extends Model
+{
+    public int $id;
+    public string $name;
+    public string $email;
+    public ?string $password; // nullable
+}
+
+```
+
+
+
+### Create: app/Models/Post.php
+
+```
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @typescript
+ */
+class Post extends Model
+{
+    public int $id;
+    public string $title;
+    public string $body;
+    public int $user_id;
+}
+
+```
+
+#### Explanation:
+
+Annotating with @typescript tells the transformer to generate TypeScript types for these models automatically.
+
+
+
+## STEP 5: Run Transformer
+
+### Run:
+
+```
+php artisan typescript:transform
+
+```
+
+### You’ll get generated TypeScript definitions here:
+
+```
+resources/ts/generated.d.ts
+
+```
+
+### Example output:
+
+```
+export interface User {
+    id: number;
+    name: string;
+    email: string;
+}
+
+export interface Post {
+    id: number;
+    title: string;
+    body: string;
+    user_id: number;
+}
+
+```
+
+#### Explanation:
+
+This command scans all annotated classes and generates TypeScript definitions in the file specified in config/typescript-transformer.php.
+
+
+## Expected Output:
+
+
+<img src="screenshots/Screenshot 2026-03-17 165108.png" width="900">
+
+<img src="screenshots/Screenshot 2026-03-17 171306.png" width="900">
+
+
+---
+
+## Project Folder Structure:
+
+```
+PHP_Laravel11_TypeScript_Transformer/
+├── app/
+│   ├── Console/
+│   ├── Exceptions/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   └── Middleware/
+│   ├── Models/
+│   │   ├── User.php        <-- annotated with /** @typescript */
+│   │   └── Post.php        <-- annotated with /** @typescript */
+│   ├── Providers/
+│   └── ...
+├── bootstrap/
+│   └── cache/
+├── config/
+│   ├── app.php
+│   ├── database.php
+│   └── typescript-transformer.php   <-- config file for TS transformer
+├── database/
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+├── public/
+│   └── index.php
+├── resources/
+│   ├── views/
+│   └── ts/
+│       └── generated.d.ts         <-- generated TypeScript types
+├── routes/
+│   ├── api.php
+│   └── web.php
+├── storage/
+│   ├── app/
+│   ├── framework/
+│   └── logs/
+├── tests/
+├── vendor/
+├── composer.json
+├── composer.lock
+├── package.json
+├── tsconfig.json
+└── .env
+
+```
